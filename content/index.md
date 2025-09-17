@@ -1,11 +1,8 @@
 ---
-title: Welcome to Quartz
+title: 강성우의 블로그
 ---
-
-강성우 입니다.
-
 작은 글도 써보고 싶고 유기적으로 연결도 해보고싶어서 옵시디언으로 만들어봤어요.
 
 아마 글은 안 올라올거 같습니다.
 
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+[[Inverse Transform Method]] 이렇게 위키식으로 연결도 되고, obsidian에서 gui로 깃에 올릴 수도 있어서 좋은것 같습니다.
