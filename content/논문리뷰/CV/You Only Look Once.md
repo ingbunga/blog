@@ -4,7 +4,7 @@ tags:
   - CV
   - 논문리딩스터디
   - YBIGTA
-draft: "true"
+draft: "false"
 ---
 - 제목: You Only Look Once: Unified, Real-Time Object Detection
 - 저자: Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi
