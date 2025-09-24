@@ -5,4 +5,4 @@ title: 강성우의 블로그
 
 아마 글은 안 올라올거 같습니다.
 
-[[Inverse Transform Method]] 이렇게 위키식으로 연결도 되고, obsidian에서 gui로 깃에 올릴 수도 있어서 좋은것 같습니다.
+위키식으로 연결도 되고, obsidian에서 gui로 깃에 올릴 수도 있어서 좋은것 같습니다.
