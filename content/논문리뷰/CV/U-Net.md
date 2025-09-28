@@ -47,7 +47,7 @@ Caffe 프레임워크에 구현된 SGD로 학습함.
 U-Net이 의료 데이터를 위한 모델이므로, 고해상도 이미지를 받기 위해 입력 이미지 타일의 크기를 최대화 하고, GPU의 한계가 있으므로 Batch Size를 1로, 즉 단일 이미지로 줄였다.
 
 Batch size가 1이면 학습이 불안정해 지는데, 이를 막기위해 굉장히 높은 모멘텀인 0.99를 사용하여 과거의 학습 샘플을 많이 참고하여 안정적으로 학습할 수 있게 하였다.
-$\x \in \Omega$ with $\Omega \subset \mathbb{Z}^2$ 일때, soft-max $p_k$는 다음과 같다. ($a_k(\x)$ 는 $\x$ 픽셀에서 의 k번째 채널의 activation)
+$\mathtt{x} \in \Omega$ with $\Omega \subset \mathbb{Z}^2$ 일때, soft-max $p_k$는 다음과 같다. ($a_k(\mathtt{x})$ 는 $\mathtt{x}$ 픽셀에서 의 k번째 채널의 activation)
 $$
 \newcommand{\x}{\mathtt{x}}
 {
@@ -57,10 +57,12 @@ $$
 $$
 Energy Function은 다음과 같다. 즉, Weighted cross entropy 와 같다.
 $$
+\newcommand{\x}{\mathtt{x}}
 E = \sum_{\x \in \Omega}w(\x)\log(p_{\mathit{l}(\x)}(\x))
 $$
 $\mathit{l} : \Omega \rightarrow \{1, \dots, K\}$ 은 각 픽셀의 true label을 돌려주는 함수고, $w : \Omega \rightarrow \mathbb{R}$ 은 픽셀별로 가중치를 반환하는 함수이다. 가중치는 다음과 같이 정의된다.
 $$
+\newcommand{\x}{\mathtt{x}}
 w(\x) = w_c(\x) + w_0\cdot \exp\left(-\frac{(d_1(\x)+d_2(\x))^2}{2\sigma^2}\right)
 $$
 가중치는 정답 레이블에서 미리 계산된다.  $w : \Omega \rightarrow \mathbb{R}$ 는 클래스간 빈도 불균형을 해결하기 위한 weight map이다. $d_1 : \Omega \rightarrow \mathbb{R}$ 은 가장 가까이 있는 셀과의 거리이고, $d_1 : \Omega \rightarrow \mathbb{R}$ 는 두번째로 가까이 있는 셀과의 거리이다. 이 두개의 함수를 이용하여 모델은 두 세포 사이에 있는 경계에 더 큰 가중치를 부여 하게 된다. 논문에서의 experiments에서는 $w_0 = 10$ and $\sigma \approx 5$ 로 설정했다.
