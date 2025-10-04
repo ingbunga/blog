@@ -6,7 +6,6 @@ tags:
   - YBIGTA
 title: "U-Net: Convolutional Networks for Biomedical Image Segmentation"
 ---
-
 - **논문 제목:** U-Net: Convolutional Networks for Biomedical Image Segmentation (U-Net: 생물의학 이미지 분할을 위한 컨볼루션 신경망)
 - **저자:** Olaf Ronneberger, Philipp Fischer, Thomas Brox
 - **게재된 학술지/학회:** Medical Image Computing and Computer-Assisted Intervention (MICCAI)
