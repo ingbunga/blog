@@ -4,6 +4,7 @@ tags:
   - 1일1독스터디
   - YBIGTA
 title: Fast Inference from Transformers via Speculative Decoding
+draft: "true"
 ---
 - **논문 제목:** Fast Inference from Transformers via Speculative Decoding (추측 디코딩을 통한 트랜스포머의 빠른 추론)
 - **저자:** Yaniv Leviathan, Matan Kalman, Yossi Matias (Google Research)
