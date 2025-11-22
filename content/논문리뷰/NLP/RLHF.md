@@ -27,6 +27,7 @@ draft:
 
 ### Step 2: RM (Reward Modeling)
 $$ \text{loss}(\theta) = -\frac{1}{K \choose 2} E_{(x, y_w, y_l) \sim D}[\log(\sigma(r_\theta(x, y_w) - r_\theta(x, y_l)))] $$
+
 리워드 모델인 $r(x,y)$를 학습시키기 위한 로스함수. 리워드모델은 기존 LLM이랑 똑같지만, 맨 마지막에 숫자를 내놓도록 한 언어모델입니다. 논문에서는 175B에서는 학습이 불안정해서 6B를 썻다고 합니다.
 
 ![[Pasted image 20251123050410.png]]
@@ -34,7 +35,9 @@ $$ \text{loss}(\theta) = -\frac{1}{K \choose 2} E_{(x, y_w, y_l) \sim D}[\log(\s
 Bradley-Terry 선호도 모델등 RM에 대한 더 깊은 정보: https://cameronrwolfe.substack.com/p/reward-models
 ### Step 3: Reinforcement Learning via PPO
 $$ \text{objective}(\phi) = E_{(x, y) \sim D_{\pi_\phi^{RL}}}[r_\theta(x, y) - \beta\log(\frac{\pi_\phi^{RL}(y|x)}{\pi^{SFT}(y|x)})] + \gamma E_{x \sim D_{pretrain}}[\log(\pi_\phi^{RL}(x))] $$
+
 이는 다르게 쓰면 이렇게 쓰일 수 있다.
+
 $$
 \text{objective}(\phi) = \underbrace{E_{(x, y) \sim D_{\pi_\phi^{RL}}}[r_\theta(x, y)]}_{\text{(1) 보상 획득}} - \underbrace{E_{(x, y) \sim D_{\pi_\phi^{RL}}}\left[\beta \log(\frac{\pi_\phi^{RL}(y|x)}{\pi^{SFT}(y|x)})\right]}_{\text{(2) KL 페널티}} + \underbrace{\gamma E_{x \sim D_{pretrain}}[\log(\pi_\phi^{RL}(x))]}_{\text{(3) 사전 학습 유지}}
 $$
